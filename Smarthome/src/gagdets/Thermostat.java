@@ -3,7 +3,7 @@ import Smarthome.src.SmartDevice;
 
 
 public class Thermostat extends SmartDevice {
-    double temperature;
+   private double temperature;
     
     public Thermostat(String name, boolean status, double temperature) {
         super(name, status);
