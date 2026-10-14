@@ -1,6 +1,4 @@
 package Smarthome.src;
-import Smarthome.src.gagdets.Lamp;
-import Smarthome.src.gagdets.Thermostat;
 
 public abstract class SmartDevice {
   protected  String name;
@@ -13,8 +11,9 @@ public abstract class SmartDevice {
         this.name = name;
         this.status = status;
     }
-       
-        
+
+    public abstract void displayInfo();
+
 
 
 
