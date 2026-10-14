@@ -12,7 +12,14 @@ public abstract class SmartDevice {
         this.status = status;
     }
 
+    public void turnOn() {status = true;}
+    public void turnOff() {status = false;}
+
+    public String getName() {return name;}
+    public boolean isOn() { return status;}
+    
     public abstract void displayInfo();
+  }
 
 
 
@@ -29,7 +36,6 @@ public abstract class SmartDevice {
 
 
 
-}
 
 
 

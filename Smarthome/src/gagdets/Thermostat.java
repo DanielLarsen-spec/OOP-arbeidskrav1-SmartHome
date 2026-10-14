@@ -10,14 +10,6 @@ public class Thermostat extends SmartDevice {
         this.temperature = temperature;
     }
 
-    public void isOn() {
-        this.status = true;
-    }
-
-    public void isOff() {
-        this.status = false;
-    }
-
     public double getTemperature() {
         return temperature;
     }

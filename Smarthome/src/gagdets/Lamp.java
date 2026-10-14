@@ -10,14 +10,6 @@ public class Lamp extends SmartDevice {
         this.brightness = brightness;
     }
     
-    public void turnOn() {
-        this.status = true;
-    }
-
-    public void turnOff() {
-        this.status = false;
-    }
-
     public int getBrightness() {
         return brightness;
     }

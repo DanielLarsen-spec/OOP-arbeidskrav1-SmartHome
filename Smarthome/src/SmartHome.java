@@ -14,9 +14,30 @@ public class SmartHome {
     devices.add(device);
    }
 
+   public SmartDevice findDevice(String deviceName) {
+    for(SmartDevice d : devices) {
+        if(d.getName().equalsIgnoreCase(deviceName)) {
+            return d;
+        }
+    }
+    return null;
+   }
 
+   public void turnOnDevice(String devicename) {
+    SmartDevice d = findDevice(devicename);
+    if(d != null) {
+        d.turnOn();
+    } else {
+        System.out.println("Fant ingen enheter med navn: " + devicename);
+    }
+   }
+   public void turnOffAll() {
+    for(SmartDevice d: devices) {
+        d.turnOff();
+    }
+   }
 
-
-
-
+   public void displayAll() {
+    System.out.println("===" + devices + "===");
+   }
 }
