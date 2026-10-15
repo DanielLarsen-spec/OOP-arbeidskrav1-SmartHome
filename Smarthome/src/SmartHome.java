@@ -39,5 +39,9 @@ public class SmartHome {
 
    public void displayAll() {
     System.out.println("===" + devices + "===");
+    for(SmartDevice d : devices) {
+        d.displayInfo();
+        System.out.println();
+    }
    }
 }
