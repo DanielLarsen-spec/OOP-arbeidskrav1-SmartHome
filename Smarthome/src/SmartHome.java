@@ -31,6 +31,16 @@ public class SmartHome {
         System.out.println("Fant ingen enheter med navn: " + devicename);
     }
    }
+
+   public void turnOffDevice(String devicename){
+    SmartDevice d = findDevice(devicename);
+    if(d != null) {
+        d.turnOff();
+    } else{
+        System.out.println("Fant ingen enheter med navn: " + devicename);
+    }
+   }
+
    public void turnOffAll() {
     for(SmartDevice d: devices) {
         d.turnOff();
