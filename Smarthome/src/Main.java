@@ -39,7 +39,7 @@ public class Main {
 
     private static void testOppgave2() {
         System.out.println("Oppgave 2");
-        SmartHome home = new SmartHome("Pilotboligen");
+        SmartHome home = new SmartHome("Boligen");
         home.addDevices(new Lamp("Stuelampe", false, 80));
         home.addDevices(new Lamp("Leselampe", false, 50));
         home.addDevices(new Thermostat("Gang", false, 21.5));
