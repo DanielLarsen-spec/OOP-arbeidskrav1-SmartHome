@@ -2,6 +2,8 @@ package Smarthome.src;
 
 import Smarthome.src.gagdets.Lamp;
 import Smarthome.src.gagdets.Thermostat;
+import myphone.app.CallApp;
+import myphone.model.MyPhone;
 import Smarthome.src.gagdets.Sensor;
 
 public class Main {
@@ -96,6 +98,48 @@ public class Main {
     }
 
     private static void testOppgave4(){
+        System.out.println("Oppgave 4");
+
+        SmartHome home = new SmartHome("Boligen");
+        Lamp livingRoomLamp = new Lamp("Stuelampe", false, 30);
+        Thermostat hallThermostat = new Thermostat("Gangtermostat", false, 19.0);
+        home.addDevices(livingRoomLamp);
+        home.addDevices(hallThermostat);
+        home.addDevices(new Sensor("Gangsensor", true, false));
+        //Oppretter telefonen og installerer appen
+        MyPhone phone = new MyPhone("Apple", "Iphone 14", 260, 80);
+        SmartHomeApp smartHomeApp = new SmartHomeApp("1.0", home);
+        phone.installApp(new CallApp("2.0"));
+        phone.installApp(smartHomeApp);
+        phone.listApps();
+
+        //Starter appene via telefon
+        System.out.println("Telefonen starter appene");
+        phone.runAllApps();
+
+        //Slår på lampen og endrer lysstyrken via telefonen
+        smartHomeApp.turnOn("Stuelampe");
+        smartHomeApp.setBrightness("Stuelampe", 80);
+
+        //Endrer temperaturen via telefonen og appen
+        smartHomeApp.setTemperature("Gangtermostat", 22.5);
+
+        //Planlegger en enhet via appen
+        smartHomeApp.schedule("Stuelampe", "07:00");
+
+        //Viser at typesjekken fungerer
+        smartHomeApp.setBrightness("Gangtermostat", 50);
+
+        //Viser hjemme ikke via appen
+        System.out.println("Viser hjemme etter endringer i appen");
+        home.displayAll();
+
+        //viser til at det er de samme objektene
+        System.out.println("Lampens lysstyrke lest fra originale referanser: "
+            + livingRoomLamp.getBrightness());
+        System.out.println("Samme lampeobjekt i hjemmet: "
+            + (home.findDevice("Stuelampe") == livingRoomLamp));
+
 
 
 
