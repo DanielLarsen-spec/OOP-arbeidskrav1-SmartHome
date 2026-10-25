@@ -1,5 +1,8 @@
 package Smarthome.src;
 import myphone.app.general.App;
+import Smarthome.src.gagdets.Lamp;
+import Smarthome.src.gagdets.Thermostat;
+
 
 public class SmartHomeApp extends App {
     private SmartHome home;
@@ -26,7 +29,23 @@ public class SmartHomeApp extends App {
         home.scheduleDevice(deviceName, time);
     }
 
+    public void setBrightness(String deviceName, int brightness){
+        SmartDevice d = home.findDevice(deviceName);
+        if(d instanceof Lamp lamp) {
+            lamp.setBrightness(brightness);
+        } else {
+            System.out.println(deviceName + " Er ikke en lampe");
+        }
+    }
 
+    public void setTemperature(String deviceName, double temperature) {
+        SmartDevice d = home.findDevice(deviceName);
+        if(d instanceof Thermostat thermostat) {
+            thermostat.setTemperature(temperature);
+        } else{
+            System.out.println(deviceName + "Er ikke en termostat");
+        }
+    }
 
 
 
