@@ -2,6 +2,7 @@ package Smarthome.src;
 
 import java.util.ArrayList;
 
+
 public class SmartHome {
    private String name;
    private ArrayList<SmartDevice> devices = new ArrayList<>();
@@ -47,8 +48,27 @@ public class SmartHome {
     }
    }
 
+   public void scheduleDevice(String deviceName, String time) {
+    SmartDevice d = findDevice(deviceName);
+    if(d instanceof Timer t) {
+        t.setTime(time);
+    } else{ 
+        System.out.println(deviceName +" Enheten støtter ikke tidsinnstilling");
+    }
+   }
+
+   public ArrayList<Timer> getScheduledDevices() {
+    ArrayList<Timer> result = new ArrayList<>();
+    for(SmartDevice d : devices) {
+        if(d instanceof Timer t) {
+            result.add(t);
+        }
+    }
+    return result;
+   }
+
    public void displayAll() {
-    System.out.println("===" + devices + "===");
+    System.out.println("===" + name + "===");
     for(SmartDevice d : devices) {
         d.displayInfo();
         System.out.println();
