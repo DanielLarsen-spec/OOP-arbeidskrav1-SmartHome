@@ -25,6 +25,10 @@ public class SmartHomeApp extends App {
         home.turnOffDevice(deviceName);
     }
 
+    public void turnOffAll(){
+        home.turnOffAll();
+    }
+
     public void schedule(String deviceName, String time){
         home.scheduleDevice(deviceName, time);
     }
@@ -34,7 +38,7 @@ public class SmartHomeApp extends App {
         if(d instanceof Lamp lamp) {
             lamp.setBrightness(brightness);
         } else {
-            System.out.println(deviceName + " Er ikke en lampe");
+            System.out.println(deviceName + " er ikke en lampe");
         }
     }
 
@@ -43,7 +47,7 @@ public class SmartHomeApp extends App {
         if(d instanceof Thermostat thermostat) {
             thermostat.setTemperature(temperature);
         } else{
-            System.out.println(deviceName + "Er ikke en termostat");
+            System.out.println(deviceName + " er ikke en termostat");
         }
     }
 
